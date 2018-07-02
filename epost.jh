@@ -1,0 +1,103 @@
+// Danh muc
+entity PostOffice {
+	id Long,
+    code String required,
+    name String required,
+    address String,
+    sortOrder Integer,
+    phone String,
+    latitude Double,
+    longitude Double,
+    description String
+}
+
+entity Ward {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity District {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity Province {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity UserGroup {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity Bank {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity OrderStatus {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity OrderService {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity CustomerType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity CustomerSource {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity PaymentType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity QuotationItemType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity OrderUserRouteType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+
+filter *
+paginate * with pagination
+service all with serviceImpl
+search * with elasticsearch
+dto * with mapstruct
