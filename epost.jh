@@ -1,0 +1,291 @@
+// Danh muc
+entity PostOffice {
+	id Long,
+    code String required,
+    name String required,
+    address String,
+    sortOrder Integer,
+    phone String,
+    latitude Double,
+    longitude Double,
+    description String
+}
+
+entity Ward {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity District {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity Province {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity UserGroup {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity Bank {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity OrderStatus {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity OrderService {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity CustomerType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity CustomerSource {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity PaymentType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity QuotationItemType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+entity OrderUserRouteType {
+	id Long,
+    code String required,
+    name String required,
+    description String
+}
+
+// Company
+entity Company {
+	id Long,
+    code String required,
+    name String required,
+    address String,
+    phone String,
+    email String,
+    website String,
+    description String
+}
+
+// OrderUserRoute
+entity OrderUserRoute{
+	id Long
+}
+
+// File upload
+entity FileUpload {
+	id Long,
+    name String required,
+    content Blob required,
+    uploadTime Instant required,
+    contentType String required
+}
+
+// System
+entity UserExtraInfo {
+	id Long,
+    email String,
+    phone String,
+    address String,
+    validDate Instant required,
+    lastLoginDate Instant,
+    contractFile Blob,
+    contractExpirationDate Instant
+    userId Long
+}
+
+entity UserPostOffice {
+	id Long
+}
+
+// Customer
+entity Customer {
+	id Long,
+    code String required,
+    name String required,
+    address String,
+    email String required,
+    phone String required,
+    password String required,
+    isActive Boolean required,
+    createDate Instant required,
+    lastLoginDate Instant,
+    apiToken String
+}
+
+entity CustomerLegal {
+	id Long,
+    contractCustomerName String required,
+    contractAddress String required,
+    contractContactName String,
+    contractContactPhone String,
+    taxCode String,
+    contractExpirationDate String required
+}
+
+entity CustomerPayment {
+	id Long,
+    branchName String,
+    accountNumber String,
+    accountName String required,
+    cardNumber String,
+    paymentAmountMoney Double,
+    idImage Blob,
+    isVerify Boolean required,
+    dateVerify Instant
+}
+
+entity CustomerPostOffice {
+	id Long,
+    code String required,
+    isActive Boolean required,
+    createDate Instant required
+}
+
+entity CustomerService {
+	id Long,
+    discountPercent Double,
+    increasePercent Double,
+    decreasePercent Double
+}
+
+entity Warehouse {
+	id Long,
+    name String required,
+    contactName String required,
+    contactPhone String required,
+    address String,
+    testStr String,
+    createDate Instant required
+}
+
+// Quotation
+entity Quotation {
+	id Long,
+    name String required,
+    isActive Boolean required,
+    description String,
+    createDate Instant required
+}
+
+entity QuotationItem {
+	id Long,
+    quotationFile Blob required,
+    createDate Instant required
+}
+
+// Order
+entity OrderMain {
+	id Long,
+    orderNumber String required,
+    createDate Instant required,
+    sendDate Instant,
+    weight Double,
+    width Integer,
+    height Integer,
+    depth Integer,
+    quantityItem Integer,
+    orderPrice Double,
+    finalWeight Double required,
+    customerOrderNumber String,
+    codAmount Double
+}
+
+entity OrderPickup {
+	id Long,
+    address String required,
+    contactPhone String required,
+    contactName String,
+    assignDate Instant,
+    pickupDate Instant 
+}
+
+entity OrderConsignee {
+	id Long,
+    address String required,
+    consigneePhone String required,
+    consigneeName String
+}
+
+entity OrderFee {
+	id Long,
+    deliveryFee Double required,
+    pickupFee Double,
+    codFee Double,
+    insuranceFee Double,
+    otherFee Double,
+    discount Double,
+    totalFee Double required
+}
+
+entity OrderDelivery {
+	id Long,
+    receiver String,
+    note String,
+    receiveTime Instant,
+    createDate Instant required
+}
+
+entity MasterForm {
+	id Long,
+    code String required,
+    note String,
+    receiveTime Instant required,
+    imageFile Blob required,
+    isActive Boolean required
+}
+
+entity DetailForm {
+	id Long,
+    description String,
+    createDate Instant required,
+    uploadFile Blob required,
+    isActive Boolean required
+}
+
+
+filter *
+paginate * with pagination
+service all with serviceImpl
+search * with elasticsearch
+dto * with mapstruct
