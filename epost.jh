@@ -1,0 +1,14 @@
+// Danh muc
+entity PostOffice {
+	id Long,
+    code String required,
+    name String required
+}
+
+
+
+filter *
+paginate * with pagination
+service all with serviceImpl
+search * with elasticsearch
+dto * with mapstruct
